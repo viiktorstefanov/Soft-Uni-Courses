@@ -8,7 +8,7 @@ for(let i = 0; i < commands.length; i++) {
     arr = executeCommand(command, parameters , arr);
 }
 
-return arr;
+return arr.join(' ');
 
 function executeCommand(command, parameters, arr) {
     switch(command) {

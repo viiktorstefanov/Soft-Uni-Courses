@@ -1,5 +1,5 @@
 function lastKNumbers (n, k) {
-let arr = [1];
+let sequence = [1];
 for (let i = 1; i < n; i++) {
     let index = Math.max(sequence.length - k, 0);
 
