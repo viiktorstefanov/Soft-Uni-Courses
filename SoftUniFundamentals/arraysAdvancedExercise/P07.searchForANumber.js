@@ -1,27 +1,20 @@
-function searchNum (arr,commands) {
-let toTake = commands[0];
-let toDelete = commands[1];
-let toSearch = commands[2];
-arr.splice(0,toDelete)
-// We can make it with .shift() too!
-//arr.shift();
-//arr.shift();
-let counter = 0;
+function solve(nums, criteria) {
+  let count = 0;
+  let el = criteria[2];
+  let arr = nums.slice(0, criteria[0]);
+  arr.splice(0, criteria[1]);
+  for (let i = 0; i < arr.length; i++) {
 
-for(let i = 0; i < arr.length; i++ ) {
-   let currEl = arr[i];
-    if(currEl === toSearch) {
-      counter++;
+    if (arr[i] === (el)) {
+      count++;
     }
-   
-
-    }
-console.log(`Number ${toSearch} occurs ${counter} times.`)
+  }
+  console.log(`Number ${el} occurs ${count} times.`)
 }
 
-searchNum([5, 2, 3, 4, 1, 6],
-    [5, 2, 3]
-    )
-searchNum([7, 1, 5, 8, 2, 7],
-      [3, 1, 5]
-      )
+solve([5, 2, 3, 4, 1, 6],
+  [5, 2, 3]
+)
+solve([7, 1, 5, 8, 2, 7],
+  [3, 1, 5]
+)
