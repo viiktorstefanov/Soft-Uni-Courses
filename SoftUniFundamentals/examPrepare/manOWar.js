@@ -2,19 +2,19 @@ function manOWar(input) {
     let pirateShip = input.shift().split('>').map(a => Number(a));
     let warShip = input.shift().split('>').map(a => Number(a));
     let maxHealthCapacity = input.shift(Number);
-
+ 
     for (let i = 0; i < input.length; i++) {
         let commands = input[i].slice().split(' ')
         let command = commands[0];
-
+ 
         if (command === "Retire") {
             break;
         }
-
+ 
         if (command === "Fire") {
             let index = Number(commands[1]);
             let damage = Number(commands[2]);
-
+ 
             if (index >= 0 && index < warShip.length) {
                 warShip[index] -= damage;
                 if (warShip[index] <= 0) {
@@ -22,14 +22,14 @@ function manOWar(input) {
                     return;
                 }
             }
-
+ 
         }
-
+ 
         if (command === "Defend") {
             let startIndex = Number(commands[1]);
             let endIndex = Number(commands[2]);
             let damage = Number(commands[3]);
-
+ 
             if (startIndex >= 0 && startIndex < pirateShip.length &&
                 endIndex >= 0 && endIndex < pirateShip.length) {
                 for (let i = startIndex; i <= endIndex; i++) {
@@ -39,18 +39,17 @@ function manOWar(input) {
                         return;
                     }
                 }
-
+ 
             }
         }
-
+ 
         if (command === "Repair") {
             let index = Number(commands[1]);
             let health = Number(commands[2]);
             if (index >= 0 && index < pirateShip.length) {
-                pirateShip[index] += health;
-                if (pirateShip[index] > maxHealthCapacity) {
-                    pirateShip[index] = maxHealthCapacity;
-                }
+            
+                let missingHealth = maxHealthCapacity - pirateShip[index];
+                pirateShip[index] += Math.min(missingHealth, health);
             }
         }
         if (command === "Status") {
@@ -69,9 +68,10 @@ function manOWar(input) {
     let warshipSum = warShip.reduce((a, c) => a + c, 0);
     console.log(`Pirate ship status: ${pirateShipSum}`)
     console.log(`Warship status: ${warshipSum}`)
-    
-
+ 
+ 
 }
+
 manOWar(["12>13>11>20>66",
     "12>22>33>44>55>32>18",
     "70",
