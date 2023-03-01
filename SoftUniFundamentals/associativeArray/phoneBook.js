@@ -1,0 +1,17 @@
+function phoneBook(input) {
+    let phoneBook = {};
+for(line of input) {
+line = line.split(' ');
+let contactName = line[0];
+let contactPhoneNumber = line[1];
+phoneBook[contactName] = contactPhoneNumber;
+}
+for(let [key,value] of Object.entries(phoneBook)) {
+    console.log(`${key} -> ${value}`);
+}
+}
+phoneBook(['Tim 0834212554',
+'Peter 0877547887',
+'Bill 0896543112',
+'Tim 0876566344']
+)
