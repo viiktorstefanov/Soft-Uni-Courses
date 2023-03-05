@@ -1,16 +1,26 @@
 function companyUsers(list) {
-    let company = {};
-    
-    let mySet1 = new Set();
+let info = {};
 for(line of list) {
-    mySet1.add(line)
+    line = line.split(' -> ');
+    let [companyName,id] = line;
+    let set = new Set();
+    if(info[companyName]) {
+        info[companyName] = info[companyName].add(id)
+    }
+    else {
+        info[companyName] = set.add(id);
+    }
 }
-let arrSet  = Array.from(mySet1).sort((a,b) => a.localeCompare(b));
-for(line of arrSet) {
-    let [companyName,id] = line.split(' -> ')
-    
-    // console.log(companyName);
-    // console.log(`-- ${id}`);
+let arrInfo = Object.entries(info).sort((a,b) => a[0].localeCompare(b[0]));
+
+for(line of arrInfo) {
+let companyName = line.shift();
+console.log(companyName);
+let set = line[0];
+let arrSet = Array.from(set);
+for(id of arrSet) {
+    console.log(`-- ${id}`);
+}
 }
 }
 companyUsers([
