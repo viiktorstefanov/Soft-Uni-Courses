@@ -21,7 +21,7 @@ function travelTime(arr) {
                 }
     
             });
-            // let sorted = Object.entries(obj).sort((a, b) => a[0].localeCompare(b[0]));
+            
             let sorted = Object.keys( obj).sort((a,b) => a.localeCompare(b));
           
             let newObj = {};
@@ -46,10 +46,6 @@ function travelTime(arr) {
                     result +=  " "
                 }
             })
-            // for(city in newObj[country]) {
-            //     // console.log(`${country} -> ${city} -> ${newObj[country][city]}`);
-            //     result+= `${city} -> ${newObj[country][city]}`;
-            // }
             result += '\n'
             
             }
