@@ -1,0 +1,20 @@
+{
+    "launch": {
+    
+    
+        "configurations": [
+            {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${file}"
+    }
+        ],
+        "compounds": []
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 1,
+    "workbench.sideBar.location": "right",
+    "files.autoSave": "afterDelay"
+}
