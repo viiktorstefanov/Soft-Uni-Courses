@@ -10,10 +10,16 @@ module.exports = {
   },
   addPhonebookPost: (req, res) => {
 
+    
+
     let name = req.body.name;
     let number = req.body.number;
 
     const contact = new Contact(name, number);
+
+    if(phonebook.hasContact(contact)) {
+      return res.render('404');
+    }
 
     phonebook.addContact(contact);
 
