@@ -60,10 +60,10 @@ function first(arr) {
                 let cut = text.substring(startIndex, endIndex + 1);
                 let sumASCII = 0;
                 for (let i = 0; i < cut.length; i++) {
-                    for ( let j=0; j < cut[i].length; j++ ) {
-                        let charCode = cut[i].charCodeAt(j);
+                    
+                        let charCode = cut.charCodeAt(i);
                         sumASCII += charCode;
-                     }
+                     
 
                 }
                
