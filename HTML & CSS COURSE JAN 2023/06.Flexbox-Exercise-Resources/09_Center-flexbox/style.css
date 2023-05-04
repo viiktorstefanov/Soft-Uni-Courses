@@ -1,0 +1,16 @@
+body {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.card {
+    background-color: rgb(255, 255, 255);
+    /* width: 350px;
+    height: 100px; */
+    width: 350px;
+    box-shadow: 0px 0px 5px 0 black;
+    padding: 20px;
+    text-align: left;
+}
