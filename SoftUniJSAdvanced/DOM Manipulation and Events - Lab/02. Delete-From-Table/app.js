@@ -15,9 +15,4 @@ function deleteByEmail() {
     }else {
         resultElement.textContent = 'Not found';
     }
-        
-    
-  
-    
-
 }
