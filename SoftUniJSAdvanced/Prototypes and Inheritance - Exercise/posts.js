@@ -1,14 +1,86 @@
-const object1 = {
-  property1: 42
-};
+function solution() {
+    class Post {
+      constructor(title, content) {
+        this.title = title;
+        this.content = content;
+      }
+  
+      toString() {
+        return `Post: ${this.title}\nContent: ${this.content}`;
+      }
+    }
+  
+    class SocialMediaPost extends Post {
+      constructor(title, content, likes, dislikes) {
+        super(title, content);
+  
+        this.likes = likes;
+        this.dislikes = dislikes;
+        this.comments = [];
+      }
+  
+      addComment(comment) {
+        this.comments.push(comment);
+      }
+  
+      toString() {
+        const result = [
+          super.toString(),
+          `Rating: ${this.likes - this.dislikes}`,
+        ];
+  
+        if (this.comments.length > 0) {
+          result.push('Comments:');
+          this.comments.forEach((comment) => result.push(` * ${comment}`));
+        }
+  
+        return result.join('\n');
+      }
+    }
+  
+    class BlogPost extends Post {
+      constructor(title, content, views) {
+        super(title, content);
+  
+        this.views = views;
+      }
+  
+      view() {
+        this.views++;
+        return this;
+      }
+  
+      toString() {
+        return `${super.toString()}\nViews: ${this.views}`;
+      }
+    }
+  
+    return {
+      Post,
+      SocialMediaPost,
+      BlogPost,
+    };
+  }
+  const classes = solution();
+let post = new classes.Post("Post", "Content");
 
-// Object.seal(object1);
-object1.property1 = 33;
-console.log(object1.property1);
-// Expected output: 33
-console.log(object1.property1);
-object1['name'] = 42;
+console.log(post.toString());
 
-// delete object1.property1; // Cannot delete when sealed
-console.log(object1);
-// Expected output: 33
+// Post: Post
+// Content: Content
+
+let scm = new classes.SocialMediaPost("TestTitle", "TestContent", 25, 30);
+
+scm.addComment("Good post");
+scm.addComment("Very good post");
+scm.addComment("Wow!");
+
+console.log(scm.toString());
+
+// Post: TestTitle
+// Content: TestContent
+// Rating: -5
+// Comments:
+//  * Good post
+//  * Very good post
+//  * Wow!
