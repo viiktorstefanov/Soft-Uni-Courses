@@ -26,6 +26,11 @@ body {
 .hidden {
     display: none;
 }
+.wizard {
+    position: absolute;
+    background-image: url('/src/images/wizard.png');
+    background-size: cover;
+}
 .game-screen {
     width: 100%;
     height: 100%;

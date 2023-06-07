@@ -1,6 +1,12 @@
 function initState() {
     const state = {
-        player: 'Viktor'
+        player: 'Viktor',
+        wizard: {
+            width: 82,
+            height: 100,
+            startX: 50,
+            startY: 400,
+        }
     }
 
     return state;
