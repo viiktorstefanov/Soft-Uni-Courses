@@ -6,16 +6,16 @@ let state = initState();
         'KeyS',
         'KeyD',
         'KeyW',
-    ]
+    ];
 
     document.addEventListener('keydown', (e) => {
-        if(!avalibleKeys.includes(e.code)) {
+        if(avalibleKeys.includes(e.code)) {
             state.keys[e.code] = true;
         }
         
     });
     document.addEventListener('keyup', (e) => {
-        if(!avalibleKeys.includes(e.code)) {
+        if(avalibleKeys.includes(e.code)) {
             state.keys[e.code] = false;
         }
         
