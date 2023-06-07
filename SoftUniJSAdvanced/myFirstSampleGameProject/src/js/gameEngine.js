@@ -9,22 +9,10 @@ function gameLoop(state, game) {
     const { wizard } = state;
     const { wizardElement } = game;
 
-    // Move wizard
-    if(state.keys.KeyA) {
-        wizard.positionX = Math.max(wizard.positionX - wizard.speed, 0);
-    }
-    if(state.keys.KeyS) {
-        wizard.positionY = Math.min(wizard.positionY + wizard.speed, game.gameScreen.offsetHeight - wizard.height);
-    }
+    modifyWizardPosition(state, game);
 
-    if(state.keys.KeyD) {
-        wizard.positionX = Math.min(wizard.positionX + wizard.speed, game.gameScreen.offsetHeight - wizard.width);
-    }
-
-    if(state.keys.KeyW) {
-        wizard.positionY = Math.max(wizard.positionY - wizard.speed, 0);
-    }
-
+    // Spawn bugs
+    game.createBug(state.bugStats);
 
 
     // Render
@@ -32,4 +20,23 @@ function gameLoop(state, game) {
     wizardElement.style.top = wizard.positionY + 'px';
 
     window.requestAnimationFrame(gameLoop.bind(null, state, game))
+}
+
+function modifyWizardPosition(state, game) {
+        const { wizard } = state;
+        // Move wizard
+        if(state.keys.KeyA) {
+            wizard.positionX = Math.max(wizard.positionX - wizard.speed, 0);
+        }
+        if(state.keys.KeyS) {
+            wizard.positionY = Math.min(wizard.positionY + wizard.speed, game.gameScreen.offsetHeight - wizard.height);
+        }
+    
+        if(state.keys.KeyD) {
+            wizard.positionX = Math.min(wizard.positionX + wizard.speed, game.gameScreen.offsetHeight - wizard.width);
+        }
+    
+        if(state.keys.KeyW) {
+            wizard.positionY = Math.max(wizard.positionY - wizard.speed, 0);
+        }
 }
