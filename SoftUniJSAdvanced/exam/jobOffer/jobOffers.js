@@ -18,7 +18,10 @@ class JobOffers {
                     currCandidate.yearsExperience = yearsExperience;
                 }
             }
-            added.push(name);
+            if(!added.includes(name)) {
+                added.push(name);
+            }
+            
          })
         return `You successfully added candidates: ${added.join(', ')}.`
     }
@@ -31,7 +34,7 @@ class JobOffers {
             throw new Error (`${name} is not in the candidates list!`)
         }
         if(minExperience > currCandidate.yearsExperience) {
-            throw new Error (`${name} does not have enough experience as ${position}, minimum requirement is ${minExperience} years.`)
+            throw new Error (`${name} does not have enough experience as ${this.position}, minimum requirement is ${minExperience} years.`)
         }
         currCandidate.yearsExperience = 'hired';
 
@@ -47,7 +50,7 @@ class JobOffers {
         }else if(currCandidate.education === 'Master') {
             return `${name} will sign a contract for ${this.employer}, as ${this.position} with a salary of $60,000 per year!`
         }else {
-            return `${name} will sign a contract for ${this.employer}, as ${this.position} with a salary of $40,000 per year!"`
+            return `${name} will sign a contract for ${this.employer}, as ${this.position} with a salary of $40,000 per year!`
         }
     }
     candidatesDatabase() {
@@ -55,8 +58,8 @@ class JobOffers {
             throw new Error(`Candidate Database is empty!`);
         }
 
-        let sorted = this.jobCandidates.sort((a, b ) => a.name.localeCompare(b.name)).map(x => `${x.name}-${x.yearsExperience}`);
-        return `Candidates list:` + '\n' + `${sorted.join('\n')}`
+        let sortedCandidates = this.jobCandidates.sort((a, b ) => a.name.localeCompare(b.name)).map(x => `${x.name}-${x.yearsExperience}`);
+        return `Candidates list:` + '\n' + `${sortedCandidates.join('\n')}`
     }
 }
 let Jobs = new JobOffers ("Google", "Strategy Analyst");
