@@ -80,7 +80,6 @@ function solve() {
                         ulElement.appendChild(li);
 
 
-
                         editBtn.addEventListener('click', () => {
 
                                 while (ulElement.firstChild) {
