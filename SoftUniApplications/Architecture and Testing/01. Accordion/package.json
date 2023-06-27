@@ -1,0 +1,19 @@
+{
+  "name": "01.-accordion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "accordion.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "playwright-chromium": "^1.35.1"
+  },
+  "dependencies": {
+    "chai": "^4.3.7"
+  }
+}
