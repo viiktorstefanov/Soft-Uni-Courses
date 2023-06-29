@@ -4,7 +4,7 @@ const { expect } = require('chai');
 let browser, page; // Declare reusable variables
 
 describe('E2E tests', function() {
-  before(async () => { browser = await chromium.launch({ headless: false, slowMo: 500 }); });
+  before(async () => { browser = await chromium.launch({ headless: false, slowMo: 1500 }); });
   after(async () => { await browser.close(); });
   beforeEach(async () => { page = await browser.newPage(); });
   afterEach(async () => { await page.close(); }); 
