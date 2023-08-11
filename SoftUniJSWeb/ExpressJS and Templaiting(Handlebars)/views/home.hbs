@@ -1,0 +1,9 @@
+{{#if contacts}}
+<ul>
+    {{#each contacts}}
+        {{>userCard}}
+    {{/each}}
+</ul>
+{{else}}
+    <p>No contacts yet</p>
+{{/if}}
