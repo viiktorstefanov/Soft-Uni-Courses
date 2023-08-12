@@ -1,4 +1,40 @@
 body {
-    background-color: aquamarine;
+    background-color: gold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav ul {
+    list-style: none;
+    display: block;
+    text-align: center;
+    color: black;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 8px 6px ;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    
+    font-size: 15px solid;
+    font-weight:bolder;
+}
+nav ul li a:hover {
+    color:purple;
+}
+
+#content {
     width: 980px;
+    margin: auto;
+    padding: 32px;
+}
+
+label {
+    margin-right: 20px;
+}
+label span {
+    padding: 10px;
 }
