@@ -5,6 +5,7 @@ const port = 3000;
 const homeController = require('./controllers/home');
 const catalogController = require('./controllers/catalog');
 const createController = require('./controllers/create');
+const deleteController = require('./controllers/delete');
 
 const handlebars = hbs.create({
     extname: '.hbs'
@@ -21,6 +22,7 @@ app.use('/static',express.static('static'));
 app.use(homeController);
 app.use('/catalog', catalogController);
 app.use('/create', createController);
+app.use('/delete', deleteController);
 
 
 

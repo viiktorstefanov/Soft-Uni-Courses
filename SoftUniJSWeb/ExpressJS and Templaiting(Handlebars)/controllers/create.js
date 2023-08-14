@@ -6,8 +6,12 @@ router.get('/', (req, res) => {
     res.render('create');
 });
 
-router.post('/', async (req, res) => {
-    await createItem(req.body.name, Number(req.body.price));
+router.post('/', async (req, res, next) => {
+    try {
+        await createItem(req.body.name, Number(req.body.price));
+    } catch(err) {
+        next(err);
+    }
 
     res.redirect('/catalog')
 });
