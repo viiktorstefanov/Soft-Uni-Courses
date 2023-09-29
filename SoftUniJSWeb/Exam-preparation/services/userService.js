@@ -29,8 +29,23 @@ async function register(email, password, firstName, lastName) {
     }
 };
 
-async function login() {
+async function login(email, password) {
+    const existing = await User.findOne({ email }).collation({ locale: 'en', strength: 2 });
 
+    if(!existing) {
+        throw new Error('Incorrect username or password')
+    }
+
+    const match = await bcrypt.compare(password, existing.hashedPassword);
+
+    if(!match) {
+        throw new Error(`Passwords don't match`);
+    }
+
+    return {
+        _id: existing._id,
+        email: existing.email,
+    }
 };
 
 function verifyToken() {

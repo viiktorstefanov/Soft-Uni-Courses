@@ -2,6 +2,7 @@ const express = require('express');
 const handlebars = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const authorization = require('../middlewares/authorization');
+const navUser = require('../middlewares/navUser');
 
 const secret = 'mostDangerousPassword1995';
 
@@ -17,5 +18,6 @@ module.exports = (app) => {
     app.use('/static', express.static('static'));
     app.use(cookieParser());
     app.use(authorization(secret));
+    app.use(navUser());
 
 }
