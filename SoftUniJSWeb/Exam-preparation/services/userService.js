@@ -48,23 +48,14 @@ async function login(email, password) {
     }
 };
 
-function verifyToken() {
-
+function getUserInfo(userId) {
+    return User.findById(userId);
 }
 
-function createToken({ _id, username }) {
-    const payload = {
-        _id,
-        username,
-    };
-
-    const token = jwt.sign(payload, JWT_SECRET);
-    return token;
-}
 
 
 module.exports = {
     register,
     login,
-    verifyToken
+    getUserInfo,
 }

@@ -33,7 +33,7 @@ const CreatureSchema = new Schema({
         type: String,
         required: [true, 'Description is required!'],
         minLength: [5, 'Description must be between 5 and 50 characters!'],
-        maxLength: [50, 'Description must be between 5 and 50 characters!'],
+        maxLength: [500, 'Description must be between 5 and 500 characters!'],
       },
     votes: [
         {
