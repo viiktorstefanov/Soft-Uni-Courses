@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
-/*Here*/
+
 
 #catalog {
   max-width: 100%;
@@ -91,7 +91,7 @@
 .flip-vertical > .back {
   transform: rotateX(0deg);
 }
-/* custom*/
+
 
 .flip {
   position: relative;
@@ -188,7 +188,6 @@ img > .text-shadow {
 .no-posts-img {
   display: inline;
   width: 380px;
-  /*  margin-left: 40%;*/
   height: 530px;
 }
 

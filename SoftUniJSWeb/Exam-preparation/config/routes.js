@@ -18,7 +18,7 @@ module.exports = (app) => {
     app.use('/auth/logout', hasUser(), logoutController);
     app.use('/create', hasUser(), createController);
     app.use('/catalog', catalogController);
-    app.use('/catalog/details/', detailsController);
+    app.use('/catalog/details', detailsController);
     app.use('/catalog/edit', hasUser(), editController);
     app.use('/catalog/delete', hasUser(), deleteController);
     app.use('/mypost',hasUser(), profileController);

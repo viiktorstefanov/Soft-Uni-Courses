@@ -61,7 +61,34 @@ detailsController.get('/:id/vote', async (req, res) => {
       const vote = await voteForAnimal(animalId, userId);
       res.redirect(`/catalog/details/${animalId}`);
     } catch (error) {
-      res.redirect('/404')
+        const animal = await getById(req.params.id, ['owner', 'votes']).lean();
+
+        if (!animal) {
+            throw new Error('Animal not found!');
+        }
+
+        const ownerName = `${animal.owner.firstName} ${animal.owner.lastName}`;
+        const isLogged = req.user !== undefined;
+        const isOwner = isLogged && animal.owner._id.toString() === req.user._id;
+        let hasVoted;
+        
+        if(req.user) {
+             hasVoted = animal.votes.some(
+                (vote) => vote._id.toString() === req.user._id
+            );
+        }
+
+        const votes = animal.votes.length;
+        const voteEmails = animal.votes.map((vote) => vote.email).join(', ');
+        res.render('details', {
+            animal,
+            ownerName,
+            isOwner,
+            isLogged,
+            votes,
+            voteEmails,
+            error: parseError(error)
+        })
     }
   });
 

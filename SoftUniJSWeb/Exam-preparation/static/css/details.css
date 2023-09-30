@@ -64,7 +64,6 @@
 }
 
 .PG {
-    /*background: #92FE9D;*/
     background: rgba(116, 153, 226, 0.89);
     -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
@@ -178,7 +177,6 @@ span {
 
 .thumb {
     max-height: 350px;
-    /*   padding-bottom: 40%;*/
     width: 100%;
     background-size: cover;
     background-position: center center;
